@@ -15,8 +15,17 @@ namespace Model
       private String lastName;
       private String password;
       private String username;
-      
-      public String GetFirstName(int id)
+
+        public User(int id, string firstName, string lastName, string password, string username)
+        {
+            this.id = id;
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.password = password;
+            this.username = username;
+        }
+
+        public String GetFirstName(int id)
       {
          throw new NotImplementedException();
       }
