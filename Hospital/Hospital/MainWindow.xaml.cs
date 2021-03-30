@@ -22,5 +22,12 @@ namespace Hospital
             RoomOptions room = new RoomOptions();
             room.Show();
         }
+
+        private void createPatient(object sender, RoutedEventArgs e)
+        {
+            Sekretar sekretar = new Sekretar();
+            sekretar.Show();
+
+        }
     }
 }

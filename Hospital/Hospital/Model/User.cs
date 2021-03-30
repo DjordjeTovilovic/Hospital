@@ -25,6 +25,12 @@ namespace Model
             this.username = username;
         }
 
+        public int Id { get => Id; set => Id = value; }
+        public string FirstName { get => firstName; set => firstName = value; }
+        public string LastName { get => lastName; set => lastName = value; }
+        public string Password { get => password; set => password = value; }
+        public string Username { get => username; set => username = value; }
+
         public String GetFirstName(int id)
       {
          throw new NotImplementedException();

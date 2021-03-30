@@ -21,5 +21,20 @@ namespace Hospital
         {
             InitializeComponent();
         }
+
+        private void submit(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Pacijent je uspesno dodat");
+        }
+
+        private void cancel(object sender, RoutedEventArgs e)
+        {
+            Id.Text = "";
+            FirstName.Text = "";
+            LastName.Text = "";
+            Password.Text = "";
+            Username.Text = "";
+            MessageBox.Show("Pacijent nije dodat");
+        }
     }
 }

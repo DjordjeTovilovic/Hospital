@@ -96,8 +96,8 @@ namespace Model
          }
       }
       public User user;
-      
-      public User User
+
+        public User User
       {
          get
          {
