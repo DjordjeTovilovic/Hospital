@@ -55,7 +55,6 @@ namespace Model
 
         public System.Collections.Generic.List<Appointment> Appointments { get; set; }
         public System.Collections.Generic.List<StaticEquipment> StaticEquipments { get; set; }
-        public System.Collections.Generic.List<DynamicEquipment> DynamicEquipments { get; set; }
 
         //public void AddStaticEquipment(StaticEquipment staticEquipment)
         //{

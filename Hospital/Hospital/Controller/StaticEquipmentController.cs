@@ -43,5 +43,10 @@ namespace Controller
             staticEquipmentService.Update(staticEquipment);
         }
 
+        public void MoveStaticEquipment(Room fromRoom, Room toRoom, int qunatity)
+        {
+            staticEquipmentService.MoveStaticEquipment(fromRoom, toRoom, qunatity);
+        }
+
     }
 }

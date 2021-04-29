@@ -48,5 +48,10 @@ namespace Service
         {
             staticEquipmentRepository.Update(staticEquipment);
         }
+
+        public void MoveStaticEquipment(Room fromRoom, Room toRoom, int qunatity)
+        {
+            staticEquipmentRepository.MoveStaticEquipment(fromRoom, toRoom, qunatity);
+        }
     }
 }

@@ -20,18 +20,12 @@ namespace Repository
         public void ReadJson()
         {
             if (!File.Exists(_fileLocation))
-            {
-                File.Create(_fileLocation).Close();
-            }
+            File.Create(_fileLocation).Close();
 
-            using (StreamReader r = new StreamReader(_fileLocation))
-            {
-                string json = r.ReadToEnd();
-                if (json != "")
-                {
-                    _rooms = JsonConvert.DeserializeObject<List<Room>>(json);
-                }
-            }
+            using StreamReader r = new StreamReader(_fileLocation);
+            string json = r.ReadToEnd();
+            if (json != "")
+            _rooms = JsonConvert.DeserializeObject<List<Room>>(json);
         }
 
         public void WriteToJson()
@@ -89,9 +83,21 @@ namespace Repository
             WriteToJson();
         }
 
-        public void MoveEquipment(Model.Room fromRoom, Model.Room toRoom, DateTime date)
+        public void MoveEquipment(Room fromRoom, Room toRoom, DateTime date, int qunatity, StaticEquipment staticEquipment)
         {
-            throw new NotImplementedException();
+
+            if (fromRoom.StaticEquipments.Find(obj => obj.Id == staticEquipment.Id).Quantity > qunatity)
+            fromRoom.StaticEquipments.Find(obj => obj.Id == staticEquipment.Id).Quantity -= qunatity;
+
+            if (toRoom.StaticEquipments.Find(obj => obj.Id == staticEquipment.Id) != null)
+            toRoom.StaticEquipments.Find(obj => obj.Id == staticEquipment.Id).Quantity += qunatity;
+            else
+            toRoom.StaticEquipments.Add(staticEquipment);
+
+            Update(fromRoom);
+            Update(toRoom);
+
+
         }
     }
 }

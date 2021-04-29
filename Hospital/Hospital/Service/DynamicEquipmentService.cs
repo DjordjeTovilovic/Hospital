@@ -1,5 +1,6 @@
 using Model;
 using Repository;
+using System;
 using System.Collections.Generic;
 
 namespace Service
@@ -11,6 +12,7 @@ namespace Service
         {
             return dynamicRepository.GetAll();
         }
+
 
         public DynamicEquipment GetById(int id)
         {
@@ -35,6 +37,11 @@ namespace Service
         public int GenerateNewId()
         {
             return dynamicRepository.GenerateNewId();
+        }
+
+        public void MoveDynamicEquipment(DynamicEquipment dynamicEquipment, int qunatity)
+        {
+            dynamicRepository.MoveDynamicEquipment(dynamicEquipment, qunatity);
         }
     }
 }
