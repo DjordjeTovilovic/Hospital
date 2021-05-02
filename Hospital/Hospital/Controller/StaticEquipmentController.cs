@@ -13,11 +13,6 @@ namespace Controller
             return staticEquipmentService.GetAll();
         }
 
-        public List<Room> GetAllRoomsWithEquipmentName(string name)
-        {
-            return staticEquipmentService.GetAllRoomsWithEquipmentName(name);
-        }
-
         public int GenerateNewId()
         {
             return staticEquipmentService.GenerateNewId();
@@ -41,11 +36,6 @@ namespace Controller
         public void Update(StaticEquipment staticEquipment)
         {
             staticEquipmentService.Update(staticEquipment);
-        }
-
-        public void MoveStaticEquipment(Room fromRoom, Room toRoom, int qunatity)
-        {
-            staticEquipmentService.MoveStaticEquipment(fromRoom, toRoom, qunatity);
         }
 
     }

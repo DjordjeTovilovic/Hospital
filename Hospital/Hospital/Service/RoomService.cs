@@ -45,9 +45,19 @@ namespace Service
             return roomRepository.GenerateNewId();
         }
 
-        public void MoveEquipment(Model.Room fromRoom, Model.Room toRoom, DateTime date)
+        public void MoveEquipment(Room fromRoom, Model.Room toRoom, DateTime date)
         {
             throw new NotImplementedException();
+        }
+
+        public List<Room> GetOperationRooms()
+        {
+            return roomRepository.GetOperationRooms();
+        }
+
+        public List<Room> GetRoomsWithEquipmentName(string name)
+        {
+            return roomRepository.GetRoomsWithEquipmentName(name);
         }
     }
 }

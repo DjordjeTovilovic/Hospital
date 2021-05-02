@@ -24,18 +24,19 @@ namespace Repository
                 File.Create(_fileLocation).Close();
             }
 
-            using StreamReader r = new StreamReader(_fileLocation);
-            string json = r.ReadToEnd();
-            if (json != "")
+            using (StreamReader r = new StreamReader(_fileLocation))
             {
-                _staticEquipments = JsonConvert.DeserializeObject<List<StaticEquipment>>(json);
+                string json = r.ReadToEnd();
+                if (json != "")
+                {
+                    _staticEquipments = JsonConvert.DeserializeObject<List<StaticEquipment>>(json);
+                }
             }
         }
 
         public void WriteToJson()
         {
-            string json = JsonConvert.SerializeObject(_staticEquipments, Formatting.Indented,
-                new JsonSerializerSettings { PreserveReferencesHandling = PreserveReferencesHandling.Objects });
+            string json = JsonConvert.SerializeObject(_staticEquipments, Formatting.Indented);
             File.WriteAllText(_fileLocation, json);
         }
 
@@ -44,13 +45,7 @@ namespace Repository
             return _staticEquipments;
         }
 
-        public List<Room> GetAllRoomsWithEquipmentName(string name)
-        {
-            List<StaticEquipment> objList = _staticEquipments.FindAll(obj => string.Equals(obj.Name, name, StringComparison.OrdinalIgnoreCase));
-            return objList.Select(obj => obj.Room).ToList();
-        }
-
-        public StaticEquipment GetById(int id)
+        public Model.StaticEquipment GetById(int id)
         {
             return _staticEquipments.Find(obj => obj.Id == id);
         }
@@ -68,7 +63,7 @@ namespace Repository
             }
         }
 
-        public void Save(StaticEquipment staticEquipment)
+        public void Save(Model.StaticEquipment staticEquipment)
         {
             _staticEquipments.Add(staticEquipment);
             WriteToJson();
@@ -86,13 +81,6 @@ namespace Repository
             int index = _staticEquipments.FindIndex(obj => obj.Id == staticEquipment.Id);
             _staticEquipments[index] = staticEquipment;
             WriteToJson();
-        }
-        public void MoveStaticEquipment(Room fromRoom, Room toRoom, int qunatity)
-        {
-            // ideja iz neke sobe obrisati kolicinu u drugu sobu je dodati 
-            // proveriti da li je matematika moguce i da li postoje sobe
-            // try catch neki
-
         }
 
     }

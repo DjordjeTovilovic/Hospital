@@ -312,7 +312,7 @@ namespace Hospital
 
         private void FindButton_Click(object sender, RoutedEventArgs e)
         {
-            roomsToShow = app.staticEquipmentController.GetAllRoomsWithEquipmentName(equipmentName.Text);
+            //roomsToShow = app.staticEquipmentController.GetAllRoomsWithEquipmentName(equipmentName.Text);
             WindowUpdate();
         }
 

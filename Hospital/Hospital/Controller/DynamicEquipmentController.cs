@@ -37,9 +37,9 @@ namespace Controller
             return dynamicService.GenerateNewId();
         }
 
-        public void MoveDynamicEquipment(DynamicEquipment dynamicEquipment, int qunatity)
+        public void MoveDynamicEquipment(DynamicEquipment dynamicEquipment)
         {
-            dynamicService.MoveDynamicEquipment(dynamicEquipment, qunatity);
+            dynamicService.MoveDynamicEquipment(dynamicEquipment);
         }
 
     }

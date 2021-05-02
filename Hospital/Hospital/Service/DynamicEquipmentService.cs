@@ -39,9 +39,9 @@ namespace Service
             return dynamicRepository.GenerateNewId();
         }
 
-        public void MoveDynamicEquipment(DynamicEquipment dynamicEquipment, int qunatity)
+        public void MoveDynamicEquipment(DynamicEquipment dynamicEquipment)
         {
-            dynamicRepository.MoveDynamicEquipment(dynamicEquipment, qunatity);
+            dynamicRepository.MoveDynamicEquipment(dynamicEquipment);
         }
     }
 }

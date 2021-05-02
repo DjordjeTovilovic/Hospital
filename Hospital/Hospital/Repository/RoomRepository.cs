@@ -20,18 +20,23 @@ namespace Repository
         public void ReadJson()
         {
             if (!File.Exists(_fileLocation))
-            File.Create(_fileLocation).Close();
+            {
+                File.Create(_fileLocation).Close();
+            }
 
-            using StreamReader r = new StreamReader(_fileLocation);
-            string json = r.ReadToEnd();
-            if (json != "")
-            _rooms = JsonConvert.DeserializeObject<List<Room>>(json);
+            using (StreamReader r = new StreamReader(_fileLocation))
+            {
+                string json = r.ReadToEnd();
+                if (json != "")
+                {
+                    _rooms = JsonConvert.DeserializeObject<List<Room>>(json);
+                }
+            }
         }
 
         public void WriteToJson()
         {
-            string json = JsonConvert.SerializeObject(_rooms, Formatting.Indented,
-                new JsonSerializerSettings { PreserveReferencesHandling = PreserveReferencesHandling.Objects });
+            string json = JsonConvert.SerializeObject(_rooms, Formatting.Indented);
             File.WriteAllText(_fileLocation, json);
         }
 
@@ -83,21 +88,26 @@ namespace Repository
             WriteToJson();
         }
 
-        public void MoveEquipment(Room fromRoom, Room toRoom, DateTime date, int qunatity, StaticEquipment staticEquipment)
+        public void MoveEquipment(Model.Room fromRoom, Model.Room toRoom, DateTime date)
         {
-
-            if (fromRoom.StaticEquipments.Find(obj => obj.Id == staticEquipment.Id).Quantity > qunatity)
-            fromRoom.StaticEquipments.Find(obj => obj.Id == staticEquipment.Id).Quantity -= qunatity;
-
-            if (toRoom.StaticEquipments.Find(obj => obj.Id == staticEquipment.Id) != null)
-            toRoom.StaticEquipments.Find(obj => obj.Id == staticEquipment.Id).Quantity += qunatity;
-            else
-            toRoom.StaticEquipments.Add(staticEquipment);
-
-            Update(fromRoom);
-            Update(toRoom);
-
-
+            throw new NotImplementedException();
         }
+
+        public List<Room> GetOperationRooms()
+        {
+            return _rooms.FindAll(obj => obj.RoomType == RoomType.operating);
+        }
+
+        public List<Room> GetRoomsWithEquipmentName(string name)
+        {
+            List<Room> roomsToReturn = new List<Room>();
+            foreach (Room room in _rooms)
+            {
+                if (room.StaticEquipments.Exists(obj => string.Equals(obj.Name, name, StringComparison.OrdinalIgnoreCase)))
+                    roomsToReturn.Add(room);
+            }
+            return roomsToReturn;
+        }
+
     }
 }
