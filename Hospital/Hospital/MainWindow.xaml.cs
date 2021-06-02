@@ -3,6 +3,7 @@ using Service;
 using System;
 using Model;
 using System.Collections.Generic;
+using Hospital.View.Director;
 
 namespace Hospital
 {
@@ -56,32 +57,33 @@ namespace Hospital
             }
 
         }
-        private void Button_Click_Patient(object sender, RoutedEventArgs e)
+
+        private void ViewRooms_Click(object sender, RoutedEventArgs e)
         {
-            var new_window = new PatientWindow();
-            new_window.Show();
-            //this.Close();
+            Rooms rooms = new Rooms();
+            rooms.Show();
+            this.Close();
+        }
+        private void ViewDynamic_Click(object sender, RoutedEventArgs e)
+        {
+            Rooms rooms = new Rooms();
+            rooms.Show();
+            this.Close();
+        }
+        private void ViewStatic_Click(object sender, RoutedEventArgs e)
+        {
+            Static equipment = new Static();
+            equipment.Show();
+            this.Close();
         }
 
-        private void Button_Click_Doctor(object sender, RoutedEventArgs e)
+        private void ViewMedicine_Click(object sender, RoutedEventArgs e)
         {
-            View.Doctor.DoctorWindow doctorWindow = new View.Doctor.DoctorWindow();
-            doctorWindow.Show();
-            //this.Close();
+            Medicines rooms = new Medicines();
+            rooms.Show();
+            this.Close();
         }
 
-        private void Button_Click_Director(object sender, RoutedEventArgs e)
-        {
-            View.Director.DirectorWindow directorWindow = new View.Director.DirectorWindow();
-            directorWindow.Show();
-            //this.Close();
-        }
 
-        private void Button_Click_Secretary(object sender, RoutedEventArgs e)
-        {
-            SecretaryFun secretaryFun = new SecretaryFun();
-            secretaryFun.Show();
-            //this.Close();
-        }
     }
 }

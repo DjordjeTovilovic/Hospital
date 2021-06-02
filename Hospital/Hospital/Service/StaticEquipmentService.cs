@@ -44,6 +44,10 @@ namespace Service
         {
             staticEquipmentRepository.Update(staticEquipment);
         }
+        public StaticEquipment GetName(string name)
+        {
+            return staticEquipmentRepository.GetName(name);
+        }
 
         public List<StaticEquipment> GetByName(string name)
         {

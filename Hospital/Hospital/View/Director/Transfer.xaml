@@ -32,8 +32,8 @@
         <Label Content="Quantity" HorizontalAlignment="Left" Margin="215,92,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.142,-0.368" Grid.Column="1"/>
         <Button x:Name="moveDynamic" Content="Move" HorizontalAlignment="Left" Margin="66,297,0,0" VerticalAlignment="Top" Click="MoveDynamic_Click" Height="33" Width="66" Grid.Column="1"/>
         <Button x:Name="cancelMoving" Content="Cancel" HorizontalAlignment="Left" Visibility="Collapsed" Margin="223,196,0,0" VerticalAlignment="Top" Click="CancelMoving_Click" Height="33" Width="97" Grid.Column="1"/>
-        <ListBox x:Name="lb_transfers" HorizontalAlignment="Left" Height="211" Margin="496,34,0,0" VerticalAlignment="Top" Width="257" Grid.Column="1">
-            <ListView Height="176" Width="236">
+        <ListBox x:Name="lb_transfers" HorizontalAlignment="Left" Height="211" Margin="504,31,0,0" VerticalAlignment="Top" Width="257" Grid.Column="1">
+            <ListView Height="202" Width="245">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Width="257" Header="List of transfers" />

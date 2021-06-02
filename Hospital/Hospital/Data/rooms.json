@@ -144,5 +144,15 @@
       }
     ],
     "Id": 5
+  },
+  {
+    "Status": true,
+    "Name": "neko",
+    "RoomType": 0,
+    "Floor": 2,
+    "Detail": "opis",
+    "Appointments": [],
+    "StaticEquipments": [],
+    "Id": 7
   }
 ]

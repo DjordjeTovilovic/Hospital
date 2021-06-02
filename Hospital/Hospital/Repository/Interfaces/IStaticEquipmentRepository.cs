@@ -10,5 +10,6 @@ namespace Repository.Interfaces
         List<StaticEquipment> GetByName(string name);
 
         List<StaticEquipment> FilterRoomId(int id);
+        StaticEquipment GetName(string name);
     }
 }

@@ -7,7 +7,39 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\back.png" />
+    <None Remove="Images\bed.jpg" />
+    <None Remove="Images\delete.png" />
+    <None Remove="Images\detail.png" />
+    <None Remove="Images\dynamic.png" />
+    <None Remove="Images\equipment.png" />
+    <None Remove="Images\medicine.png" />
+    <None Remove="Images\plus.png" />
+    <None Remove="Images\room.png" />
+    <None Remove="Images\search.png" />
+    <None Remove="medicine.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="VML\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\back.png" />
+    <Resource Include="Images\bed.jpg" />
+    <Resource Include="Images\delete.png" />
+    <Resource Include="Images\detail.png" />
+    <Resource Include="Images\dynamic.png" />
+    <Resource Include="Images\equipment.png" />
+    <Resource Include="Images\medicine.png" />
+    <Resource Include="Images\plus.png" />
+    <Resource Include="Images\room.png" />
+    <Resource Include="Images\search.png" />
+    <Resource Include="medicine.png" />
   </ItemGroup>
 
 </Project>

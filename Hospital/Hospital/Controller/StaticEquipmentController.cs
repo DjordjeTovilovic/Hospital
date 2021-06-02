@@ -38,6 +38,10 @@ namespace Controller
             staticEquipmentService.Update(staticEquipment);
         }
 
+        public StaticEquipment GetName(string name)
+        {
+            return staticEquipmentService.GetName(name);
+        }
         public List<StaticEquipment> GetByName(string name)
         {
             return staticEquipmentService.GetByName(name);

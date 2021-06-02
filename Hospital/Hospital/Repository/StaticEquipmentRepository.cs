@@ -21,6 +21,10 @@ namespace Repository
             return _objects.FindAll(obj => obj.Name == name);
         }
 
+        public StaticEquipment GetName(string name)
+        {
+            return _objects.Find(obj => obj.Name == name);
+        }
         public List<StaticEquipment> FilterRoomId(int id)
         {
             return _objects.FindAll(obj => obj.RoomId == id);

@@ -427,5 +427,23 @@
     ],
     "Alternatives": [],
     "Id": 9
+  },
+  {
+    "Name": "50",
+    "Verification": 2,
+    "Description": "opis",
+    "DoctorComment": "",
+    "Ingredients": [],
+    "Alternatives": [],
+    "Id": 10
+  },
+  {
+    "Name": "lek",
+    "Verification": 2,
+    "Description": "opis",
+    "DoctorComment": "",
+    "Ingredients": [],
+    "Alternatives": [],
+    "Id": 11
   }
 ]

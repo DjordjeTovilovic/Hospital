@@ -5,12 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hospital"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="750" Width="430">
     <Grid>
-        <Button Content="Patient" HorizontalAlignment="Left" Height="49" Margin="67,329,0,0" VerticalAlignment="Top" Click="Button_Click_Patient" Width="128"/>
-        <Button Content="Doctor" HorizontalAlignment="Left" Height="49" Margin="240,329,0,0" VerticalAlignment="Top" Click="Button_Click_Doctor" Width="128"/>
-        <Button Content="Director" HorizontalAlignment="Left" Height="49" Margin="420,329,0,0" VerticalAlignment="Top" Click="Button_Click_Director" Width="128"/>
-        <Button Content="Secretary" HorizontalAlignment="Left" Height="49" Margin="602,329,0,0" VerticalAlignment="Top" Click="Button_Click_Secretary" Width="128"/>
+        <Button HorizontalAlignment="Left" Height="64" Margin="243,320,0,0" VerticalAlignment="Top" Click="ViewRooms_Click" Width="66">
+            <Image Stretch="Fill" Source="/Images/room.png" Height="64" Width="66"/>
+        </Button>
+        <Button HorizontalAlignment="Left" Height="64" Margin="108,406,0,0" VerticalAlignment="Top" Width="66"  Click="ViewDynamic_Click">
+            <Image Stretch="Fill" Source="/Images/dynamic.png" Height="64" Width="66"/>
+        </Button>
+        <Button HorizontalAlignment="Left" Height="64" Margin="109,320,0,0" VerticalAlignment="Top" Width="66" Click="ViewMedicine_Click">
+            <Image Stretch="Fill" Source="/Images/medicine.png" Height="64" Width="66"/>
+        </Button>
+        <Button HorizontalAlignment="Left" Height="64" Margin="243,406,0,0" VerticalAlignment="Top" Width="66"  Click="ViewStatic_Click">
+            <Image Stretch="Fill" Source="/Images/bed.png" Height="64" Width="66"/>
+        </Button>
 
     </Grid>
 </Window>
