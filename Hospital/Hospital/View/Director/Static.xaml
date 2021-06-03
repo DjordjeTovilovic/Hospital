@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Hospital.View.Director"
         mc:Ignorable="d"
         Title="Static" Height="750" Width="430">
-    <Grid>
+    <Grid Background="#81c1b0">
         <DataGrid x:Name="staticDataGrid"
                         AutoGenerateColumns="False"
                         IsReadOnly="True" Margin="0,231,0,41">

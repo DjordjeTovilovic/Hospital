@@ -66,8 +66,8 @@ namespace Hospital
         }
         private void ViewDynamic_Click(object sender, RoutedEventArgs e)
         {
-            Rooms rooms = new Rooms();
-            rooms.Show();
+            Dynamic dynamic = new Dynamic();
+            dynamic.Show();
             this.Close();
         }
         private void ViewStatic_Click(object sender, RoutedEventArgs e)

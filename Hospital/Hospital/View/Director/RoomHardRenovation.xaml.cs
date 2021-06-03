@@ -2,26 +2,29 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
-using Model;
-using Controller;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 
 namespace Hospital.View.Director
 {
     /// <summary>
-    /// Interaction logic for HardRenovation.xaml
+    /// Interaction logic for RoomHardRenovation.xaml
     /// </summary>
-    public partial class HardRenovation : Window
+    public partial class RoomHardRenovation : Window
     {
-        private readonly RoomController roomController = new RoomController();
-        private readonly RenovationController renovationController = new RenovationController();
-        private List<Room> rooms = new List<Room>();
-        
-        public HardRenovation()
+        private readonly Controller.RoomController roomController = new Controller.RoomController();
+        private readonly Controller.RenovationController renovationController = new Controller.RenovationController();
+        private List<Model.Room> rooms;
+        public RoomHardRenovation()
         {
             InitializeComponent();
             rooms = roomController.GetAll();
-            foreach(Room room in rooms)
+            foreach (Model.Room room in rooms)
             {
                 roomA.Items.Add(room.Name);
                 roomB.Items.Add(room.Name);
@@ -46,14 +49,14 @@ namespace Hospital.View.Director
             {
                 MessageBox.Show("Molim Vas da popunite sva polja");
             }
-            
+
 
         }
 
         private void Attach(string roomAName, string roomBName)
         {
-            Room roomA = roomController.GetByName(roomAName);
-            Room roomB = roomController.GetByName(roomBName);
+            Model.Room roomA = roomController.GetByName(roomAName);
+            Model.Room roomB = roomController.GetByName(roomBName);
 
             DateTime renovationDateTime = SelectedDate();
 
@@ -62,10 +65,10 @@ namespace Hospital.View.Director
 
         private void Dettach(string roomName)
         {
-            Room room = roomController.GetByName(roomName);
+            Model.Room room = roomController.GetByName(roomName);
             DateTime renovationDateTime = SelectedDate();
 
-            renovationController.DettachRooms(room.Id,renovationDateTime, Double.Parse(duration.Text));
+            renovationController.DettachRooms(room.Id, renovationDateTime, Double.Parse(duration.Text));
         }
         private DateTime SelectedDate()
         {
@@ -74,6 +77,13 @@ namespace Hospital.View.Director
             int minutes = Int32.Parse(startTime.Text.Split(':')[1]);
             DateTime renovationDateTime = new DateTime(pickedDate.Year, pickedDate.Month, pickedDate.Day, hours, minutes, 00);
             return renovationDateTime;
+        }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            Dynamic dynamic = new Dynamic();
+            dynamic.Show();
+            this.Close();
         }
     }
 }

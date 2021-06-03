@@ -16,7 +16,7 @@ namespace Hospital
         private AppointmentController appointmentController = new AppointmentController();
         private EmployeeController employeeController = new EmployeeController();
         List<Employee> employees = new List<Employee>();
-        Notification notification;
+        //Notification notification;
         private NotificationController notificationController = new NotificationController();
         private PatientController patientController = new PatientController();
         List<Patient> patients = new List<Patient>();

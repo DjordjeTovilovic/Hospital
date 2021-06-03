@@ -49,7 +49,7 @@ namespace Hospital.View.Director
                 staticDetail.Show();
                 Close();
             }
-            catch
+            catch(NullReferenceException)
             {
                 MessageBox.Show("Morate odabrati sobu da bi ste prikazali detalje");
             }

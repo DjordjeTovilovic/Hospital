@@ -9,43 +9,34 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Controller;
 
 namespace Hospital.View.Director
 {
-    /// <summary>
-    /// Interaction logic for StaticDetail.xaml
-    /// </summary>
-    public partial class StaticDetail : Window
+    
+    public partial class DynamicDetail : Window
     {
-        private string pomocnoIme;
-        private readonly StaticEquipmentController staticEquipmentController = new StaticEquipmentController();
-        private Model.StaticEquipment staticEquipment1;
-        public StaticDetail(string name, int quantity, string description)
+        Controller.DynamicEquipmentController dynamicEquipmentController = new Controller.DynamicEquipmentController();
+        Model.DynamicEquipment dynamicEquipment;
+        public DynamicDetail(string name, int qunatity, string description)
         {
             InitializeComponent();
             ime.Content = name;
-            kolicina.Content = quantity;
+            kolicina.Content = qunatity;
             opis.Content = description;
-            
-            staticEquipment1 = staticEquipmentController.GetName(name);
-
+            dynamicEquipment = dynamicEquipmentController.GetByName(name)[0];
         }
-
-
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
 
-            
-            staticEquipmentController.Delete(staticEquipment1.Id);
-            MessageBox.Show("Uspesno ste obrisali sobu " + pomocnoIme);
-            pomocnoIme = "";
+
+            dynamicEquipmentController.Delete(dynamicEquipment.Id);
+            MessageBox.Show("Uspesno ste obrisali " + dynamicEquipment.Name);
             Back_Click(sender, e);
         }
         private void Back_Click(object sender, RoutedEventArgs e)
         {
-            Static stat = new Static();
-            stat.Show();
+            Dynamic dynamic = new Dynamic();
+            dynamic.Show();
             this.Close();
         }
         private void ShowUpdate_Click(object sender, RoutedEventArgs e)
@@ -72,16 +63,16 @@ namespace Hospital.View.Director
 
         private void Prihvati_Click(object sender, RoutedEventArgs e)
         {
-            staticEquipment1.Name = updateName.Text;
-            staticEquipment1.Description = updateDescription.Text;
-            staticEquipment1.Quantity = Int32.Parse(updateQuantity.Text);
+            dynamicEquipment.Name = updateName.Text;
+            dynamicEquipment.Description = updateDescription.Text;
+            dynamicEquipment.Quantity = Int32.Parse(updateQuantity.Text);
 
-            staticEquipmentController.Update(staticEquipment1);
+            dynamicEquipmentController.Update(dynamicEquipment);
             MessageBox.Show("Uspesno ste azurirali " + updateName.Text);
 
-            ime.Content = staticEquipment1.Name;
-            kolicina.Content = staticEquipment1.Quantity;
-            opis.Content = staticEquipment1.Description;
+            ime.Content = dynamicEquipment.Name;
+            kolicina.Content = dynamicEquipment.Quantity;
+            opis.Content = dynamicEquipment.Description;
 
             Ponisti_Click(sender, e);
 
@@ -93,7 +84,7 @@ namespace Hospital.View.Director
             kolicina.Visibility = Visibility.Visible;
             opis.Visibility = Visibility.Visible;
 
-            updateName.Visibility = Visibility.Collapsed; 
+            updateName.Visibility = Visibility.Collapsed;
             updateQuantity.Visibility = Visibility.Collapsed;
             updateDescription.Visibility = Visibility.Collapsed;
 

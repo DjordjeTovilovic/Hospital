@@ -5,8 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hospital.View.Director"
         mc:Ignorable="d"
-        Title="Dynamic" Height="450" Width="800">
-    <Grid>
-        
+        Title="Dynamic" Height="750" Width="430">
+    <Grid Background="#81c1b0">
+        <DataGrid x:Name="dynamicDataGrid"
+                        AutoGenerateColumns="False"
+                        IsReadOnly="True" Margin="0,231,0,41">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name"
+                            Binding="{Binding Name}" />
+                <DataGridTextColumn Header="Quantity"
+                            Binding="{Binding Quantity}" />
+                <DataGridTextColumn Header="Description"
+                            Binding="{Binding Description}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox x:Name="searchData" HorizontalAlignment="Left" Margin="144,130,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="30"/>
+        <Label  Content="Dinamička oprema" HorizontalAlignment="Center" FontSize="20" Height="46" Margin="0,31,0,0" VerticalAlignment="Top" Width="180"/>
+        <Button HorizontalAlignment="Left" Margin="264,130,0,0" VerticalAlignment="Top">
+            <Image Stretch="Fill" Source="/Images/search.png" Height="26" Width="25"/>
+        </Button>
+        <Button HorizontalAlignment="Left" Margin="356,130,0,0" Click="AddDynamic_Click" VerticalAlignment="Top">
+            <Image Stretch="Fill" Source="/Images/plus.png" Height="26" Width="25"/>
+        </Button>
+        <Button HorizontalAlignment="Left" Margin="356,180,0,0" Click="Detail_Click" VerticalAlignment="Top">
+            <Image Stretch="Fill" Source="/Images/detail.png" Height="26" Width="25"/>
+        </Button>
+        <Button HorizontalAlignment="Left" Margin="356,10,0,0" Click="Back_Click" VerticalAlignment="Top">
+            <Image Stretch="Fill" Source="/Images/back.png" Height="26" Width="25"/>
+        </Button>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="50,160,0,0" Click="Transfer_Click" VerticalAlignment="Top"/>
     </Grid>
 </Window>

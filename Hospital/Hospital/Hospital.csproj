@@ -17,6 +17,7 @@
     <None Remove="Images\plus.png" />
     <None Remove="Images\room.png" />
     <None Remove="Images\search.png" />
+    <None Remove="Images\update.png" />
     <None Remove="medicine.png" />
   </ItemGroup>
 
@@ -39,6 +40,7 @@
     <Resource Include="Images\plus.png" />
     <Resource Include="Images\room.png" />
     <Resource Include="Images\search.png" />
+    <Resource Include="Images\update.png" />
     <Resource Include="medicine.png" />
   </ItemGroup>
 

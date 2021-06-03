@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Hospital.View.Director"
         mc:Ignorable="d"
         Title="RoomAdd" Height="750" Width="430">
-    <Grid>
+    <Grid Background="#81c1b0">
         <Label Content="Dodavanje sobe" HorizontalAlignment="Center" Margin="0,63,0,0" FontSize="20" VerticalAlignment="Top"/>
         <Label Content="Ime" HorizontalAlignment="Left" Margin="155,190,0,0" FontSize="16" VerticalAlignment="Top"/>
         <TextBox x:Name="floor" HorizontalAlignment="Center" Margin="0,282,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
@@ -14,7 +14,13 @@
         <TextBox x:Name="name" HorizontalAlignment="Center" Margin="0,226,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Label Content="Opis" HorizontalAlignment="Left" Margin="155,305,0,0" FontSize="16" VerticalAlignment="Top"/>
         <TextBox x:Name="description" HorizontalAlignment="Center" Margin="0,341,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Prihvati" HorizontalAlignment="Left" Margin="328,676,0,0" VerticalAlignment="Top" Height="34" Width="61" Click="Prihvati_Click"/>
+        <Button Content="Prihvati" HorizontalAlignment="Left"  Margin="328,676,0,0" VerticalAlignment="Top" Height="34" Width="61" Click="Prihvati_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Button.Resources>
+        </Button>
         <Button Content="Poništi" HorizontalAlignment="Left" Margin="47,676,0,0" VerticalAlignment="Top" Height="34" Width="61" Click="Ponisti_Click" />
     </Grid>
 </Window>
