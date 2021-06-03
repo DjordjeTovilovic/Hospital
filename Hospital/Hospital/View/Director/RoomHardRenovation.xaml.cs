@@ -31,25 +31,31 @@ namespace Hospital.View.Director
                 dettachRoom.Items.Add(room.Name);
             }
         }
-
         private void AcceptRenovation_Click(object sender, RoutedEventArgs e)
         {
-            try // promeniti samo ime sobe kad se spajaju 
+            if(roomA.Text == roomB.Text)
             {
-                if ((bool)attach.IsChecked)
-                {
-                    Attach(roomA.Text, roomB.Text);
-                }
-                else
-                {
-                    Dettach(dettachRoom.Text);
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Molim Vas da popunite sva polja");
-            }
+                MessageBox.Show("Ne mozete da odaberet iste sobe za spajanje"); //kao validaciju napraviti 
 
+            }
+            else
+            {
+                try
+                {
+                    if ((bool)attach.IsChecked)
+                    {
+                        Attach(roomA.Text, roomB.Text);
+                    }
+                    else
+                    {
+                        Dettach(dettachRoom.Text);
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Molim Vas da popunite sva polja");
+                }
+            }
 
         }
 
@@ -60,7 +66,9 @@ namespace Hospital.View.Director
 
             DateTime renovationDateTime = SelectedDate();
 
-            renovationController.AttachRooms(roomA.Id, roomB.Id, renovationDateTime, Double.Parse(duration.Text));
+            bool goodDate = renovationController.AttachRooms(roomA.Id, roomB.Id, renovationDateTime, Double.Parse(duration.Text));
+            Greska(goodDate);
+
         }
 
         private void Dettach(string roomName)
@@ -68,7 +76,8 @@ namespace Hospital.View.Director
             Model.Room room = roomController.GetByName(roomName);
             DateTime renovationDateTime = SelectedDate();
 
-            renovationController.DettachRooms(room.Id, renovationDateTime, Double.Parse(duration.Text));
+            bool goodDate = renovationController.DettachRooms(room.Id, renovationDateTime, Double.Parse(duration.Text));
+            Greska(goodDate);
         }
         private DateTime SelectedDate()
         {
@@ -79,9 +88,21 @@ namespace Hospital.View.Director
             return renovationDateTime;
         }
 
+        private void Greska(bool goodDate)
+        {
+            if (!goodDate)
+            {
+                MessageBox.Show("Datum je vec zauzet, odaberite drugi");
+            }
+            else
+            {
+                MessageBox.Show("Uspesno ste zakazali renoviranje");
+            }
+        }
+
         private void Back_Click(object sender, RoutedEventArgs e)
         {
-            Dynamic dynamic = new Dynamic();
+            Rooms dynamic = new Rooms();
             dynamic.Show();
             this.Close();
         }

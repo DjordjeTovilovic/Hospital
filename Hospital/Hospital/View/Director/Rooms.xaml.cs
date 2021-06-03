@@ -39,6 +39,14 @@ namespace Hospital.View.Director
             main.Show();
             this.Close();
         }
+
+        private void Renoviranje_Click(object sender, RoutedEventArgs e)
+        {
+            RoomHardRenovation main = new RoomHardRenovation();
+            main.Show();
+            this.Close();
+        }
+
         private void Sreach_Click(object sender, RoutedEventArgs e)
         { // ukoliko nema nista u searchu izbaci poruku ispod bara 
             //roomsDataGrid.ItemsSource = roomController.GetByName(searchData.Text);   

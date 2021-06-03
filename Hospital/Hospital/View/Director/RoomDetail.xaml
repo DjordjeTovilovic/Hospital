@@ -8,17 +8,27 @@
         Title="RoomDetail" Height="750" Width="430">
     <Grid Background="#81c1b0">
         <Label Content="Detalji sobe" HorizontalAlignment="Center" Margin="0,63,0,0" FontSize="20" VerticalAlignment="Top"/>
-        <Label Content="Ime: " HorizontalAlignment="Left" Margin="188,190,0,0" FontSize="16" VerticalAlignment="Top"/>
-        <Label Content="Sprat: " HorizontalAlignment="Center" Margin="0,246,0,0" FontSize="16" VerticalAlignment="Top"/>
-        <Label Content="Opis: " HorizontalAlignment="Left" Margin="188,305,0,0" FontSize="16" VerticalAlignment="Top" RenderTransformOrigin="0.374,0.439"/>
-        <Label x:Name="ime" Content="" HorizontalAlignment="Center" Margin="0,221,0,0" FontSize="14" VerticalAlignment="Top"/>
-        <Label x:Name="sprat" Content="" HorizontalAlignment="Center" Margin="0,277,0,0" FontSize="14" VerticalAlignment="Top"/>
-        <Label x:Name="opis" Content="" HorizontalAlignment="Center" Margin="0,336,0,0" FontSize="14" VerticalAlignment="Top"/>
-        <Button HorizontalAlignment="Left" Margin="358,66,0,0" VerticalAlignment="Top" Click="Delete_Click"  Width="40">
+        <Label Content="Ime: " HorizontalAlignment="Left" Margin="153,199,0,0" FontSize="16" VerticalAlignment="Top"/>
+        <Label Content="Sprat: " HorizontalAlignment="Left" Margin="153,255,0,0" FontSize="16" VerticalAlignment="Top"/>
+        <Label Content="Opis: " HorizontalAlignment="Left" Margin="153,314,0,0" FontSize="16" VerticalAlignment="Top" RenderTransformOrigin="0.374,0.439"/>
+        <Label x:Name="ime" Content="" HorizontalAlignment="Left" Margin="153,230,0,0" FontSize="14" VerticalAlignment="Top"/>
+        <Label x:Name="sprat" Content="" HorizontalAlignment="Left" Margin="166,285,0,0" FontSize="14" VerticalAlignment="Top"/>
+        <Label x:Name="opis" Content="" HorizontalAlignment="Left" Margin="153,338,0,0" FontSize="14" VerticalAlignment="Top"/>
+        <Button x:Name="deleteButton" HorizontalAlignment="Left" Margin="356,66,0,0" VerticalAlignment="Top" Click="Delete_Click"  Width="40">
             <Image Stretch="Fill" Source="/Images/delete.png" Height="35" Width="35"/>
         </Button>
         <Button HorizontalAlignment="Left" Margin="356,10,0,0" Click="Back_Click" VerticalAlignment="Top">
             <Image Stretch="Fill" Source="/Images/back.png" Height="26" Width="25"/>
         </Button>
+        <Button Content="Krecenje" HorizontalAlignment="Left" Height="35" Margin="38,66,0,0" VerticalAlignment="Top" Click="ShowKrecenje_Click" Width="40"/>
+        <DatePicker x:Name="date" HorizontalAlignment="Center" Height="30" Margin="0,397,0,0" Visibility="Collapsed" VerticalAlignment="Top" Width="124"/>
+        <Label x:Name="dateLabel" Content="Odaberite datum: " HorizontalAlignment="Left" Visibility="Collapsed" Margin="153,361,0,0" FontSize="16" VerticalAlignment="Top"/>
+        <Label x:Name="startLabel" Content="Početak renoviranja: " HorizontalAlignment="Left" Visibility="Collapsed" Margin="153,432,0,0" FontSize="16" VerticalAlignment="Top"/>
+        <Label x:Name="durationLabel" Content="Trajanje renoviranja: " HorizontalAlignment="Left" Visibility="Collapsed" Margin="153,491,0,0" FontSize="16" VerticalAlignment="Top"/>
+        <TextBox x:Name="startTime" HorizontalAlignment="Left" Height="23" Visibility="Collapsed" Margin="158,468,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="134"/>
+        <TextBox x:Name="duration" HorizontalAlignment="Left" Height="23" Visibility="Collapsed" Margin="158,527,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="134"/>
+        <Button x:Name="prihvatiButton" Content="Prihvati" HorizontalAlignment="Left" Margin="328,676,0,0" VerticalAlignment="Top" Height="34" Visibility="Collapsed" Width="61" Click="AcceptRenovation_Click"/>
+        <Button x:Name="odustaniButton" Content="Odustani" HorizontalAlignment="Left" Margin="47,676,0,0" VerticalAlignment="Top" Height="34" Visibility="Collapsed" Width="61" Click="Ponisti_Click" />
+
     </Grid>
 </Window>

@@ -15,8 +15,8 @@ namespace Hospital.View.Director
     
     public partial class DynamicDetail : Window
     {
-        Controller.DynamicEquipmentController dynamicEquipmentController = new Controller.DynamicEquipmentController();
-        Model.DynamicEquipment dynamicEquipment;
+        private readonly Controller.DynamicEquipmentController dynamicEquipmentController = new Controller.DynamicEquipmentController();
+        private Model.DynamicEquipment dynamicEquipment;
         public DynamicDetail(string name, int qunatity, string description)
         {
             InitializeComponent();

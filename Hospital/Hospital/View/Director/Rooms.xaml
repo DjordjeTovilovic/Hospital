@@ -35,5 +35,6 @@
         <Button HorizontalAlignment="Left" Margin="356,10,0,0" Click="Back_Click" VerticalAlignment="Top">
             <Image Stretch="Fill" Source="/Images/back.png" Height="26" Width="25"/>
         </Button>
+        <Button Content="Napredno" HorizontalAlignment="Left" Margin="53,145,0,0" Click="Renoviranje_Click" VerticalAlignment="Top"/>
     </Grid>
 </Window>
