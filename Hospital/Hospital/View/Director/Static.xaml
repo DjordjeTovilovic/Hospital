@@ -22,7 +22,7 @@
             </DataGrid.Columns>
         </DataGrid>
         <TextBox x:Name="searchData" HorizontalAlignment="Left" Margin="144,130,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="30"/>
-        <Label  Content="Sobe" HorizontalAlignment="Center" FontSize="20" Height="33" Margin="0,31,0,0" VerticalAlignment="Top" Width="55"/>
+        <Label  Content="Statička oprema" HorizontalAlignment="Center" FontSize="20" Height="46" Margin="0,31,0,0" VerticalAlignment="Top" Width="156"/>
         <Button HorizontalAlignment="Left" Margin="264,130,0,0" VerticalAlignment="Top">
             <Image Stretch="Fill" Source="/Images/search.png" Height="26" Width="25"/>
         </Button>

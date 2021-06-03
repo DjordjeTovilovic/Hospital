@@ -42,8 +42,8 @@ namespace Hospital.View.Director
         }
         private void Back_Click(object sender, RoutedEventArgs e)
         {
-            Rooms rooms = new Rooms();
-            rooms.Show();
+            Static stat = new Static();
+            stat.Show();
             this.Close();
         }
     }

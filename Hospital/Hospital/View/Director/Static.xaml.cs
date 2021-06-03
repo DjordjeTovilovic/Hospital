@@ -17,13 +17,15 @@ namespace Hospital.View.Director
     /// </summary>
     public partial class Static : Window
     {
+        Controller.StaticEquipmentController equipmentController = new Controller.StaticEquipmentController();
         public Static()
         {
             InitializeComponent();
+            staticDataGrid.ItemsSource = equipmentController.GetAll();
         }
-        private void AddRoom_Click(object sender, RoutedEventArgs e)
+        private void AddStatic_Click(object sender, RoutedEventArgs e)
         {
-            RoomAdd roomAdd = new RoomAdd();
+            StaticAdd roomAdd = new StaticAdd();
             roomAdd.Show();
             this.Close();
         }
