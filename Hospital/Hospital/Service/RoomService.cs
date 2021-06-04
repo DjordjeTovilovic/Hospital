@@ -25,6 +25,10 @@ namespace Service
         {
             return roomRepository.GetByName(name);
         }
+        public List<Room> SearchByName(String name)
+        {
+            return roomRepository.SearchByName(name);
+        }
 
         public void Save(String name, RoomType roomType, int floor, String detail)
         {

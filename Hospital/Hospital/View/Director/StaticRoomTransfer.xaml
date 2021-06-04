@@ -7,6 +7,23 @@
         mc:Ignorable="d"
         Title="StaticRoomTransfer" Height="750" Width="430">
     <Grid>
-        
+        <Label Content="Ime: " HorizontalAlignment="Left" Margin="179,190,0,0" FontSize="16" VerticalAlignment="Top"/>
+        <Label Content="Količina: " HorizontalAlignment="Center" Margin="0,246,0,0" FontSize="16" VerticalAlignment="Top"/>
+        <Label Content="Opis: " HorizontalAlignment="Left" Margin="179,305,0,0" FontSize="16" VerticalAlignment="Top" RenderTransformOrigin="0.374,0.439"/>
+        <Label x:Name="ime" Content="" HorizontalAlignment="Center" Margin="0,221,0,0" FontSize="14" VerticalAlignment="Top"/>
+        <Label x:Name="kolicina" Content="" HorizontalAlignment="Center" Margin="0,277,0,0" FontSize="14" VerticalAlignment="Top"/>
+        <Label x:Name="opis" Content="" HorizontalAlignment="Center" Margin="0,336,0,0" FontSize="14" VerticalAlignment="Top"/>
+        <Label x:Name="soba" Content="Soba " HorizontalAlignment="Left" Margin="60,415,0,0" FontSize="16" VerticalAlignment="Top"/>
+        <ComboBox HorizontalAlignment="Left" Margin="270,424,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Prihvati" HorizontalAlignment="Center" Margin="0,575,0,0" VerticalAlignment="Top" Click="Prihvati_Click" Width="60" Height="23"/>
+        <Label  Content="Premeštanje opreme" HorizontalAlignment="Center" Margin="0,63,0,0" FontSize="20" VerticalAlignment="Top"/>
+        <Button HorizontalAlignment="Left" Margin="356,10,0,0" Click="Back_Click" VerticalAlignment="Top">
+            <Image Stretch="Fill" Source="/Images/back.png" Height="26" Width="25"/>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="25"/>
+                </Style>
+            </Button.Resources>
+        </Button>
     </Grid>
 </Window>

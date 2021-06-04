@@ -41,5 +41,9 @@ namespace Repository
             ReadJson();
             return _objects.Find(obj => string.Equals(obj.Name, name, StringComparison.OrdinalIgnoreCase));
         }
+        public List<Medicine> GetName(string name)
+        {
+            return _objects.FindAll(obj => string.Equals(obj.Name, name, StringComparison.OrdinalIgnoreCase));
+        }
     }
 }

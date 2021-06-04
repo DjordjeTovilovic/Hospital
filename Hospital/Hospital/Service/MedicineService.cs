@@ -37,6 +37,11 @@ namespace Service
             return _medicineRepository.GetByName(name);
         }
 
+        public List<Medicine> GetName(string name)
+        {
+            return _medicineRepository.GetName(name);
+        }
+
         public void Save(string name, string description)
         {
             int id = _medicineRepository.GenerateNewId();

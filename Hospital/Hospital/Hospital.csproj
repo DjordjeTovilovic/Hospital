@@ -7,16 +7,25 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\add.png" />
     <None Remove="Images\back.png" />
     <None Remove="Images\bed.png" />
+    <None Remove="Images\bin.png" />
+    <None Remove="Images\brush.jpg" />
+    <None Remove="Images\cart.png" />
     <None Remove="Images\delete.png" />
     <None Remove="Images\detail.png" />
     <None Remove="Images\dynamic.png" />
+    <None Remove="Images\edit.png" />
     <None Remove="Images\equipment.png" />
+    <None Remove="Images\help.png" />
     <None Remove="Images\medicine.png" />
     <None Remove="Images\plus.png" />
     <None Remove="Images\room.png" />
     <None Remove="Images\search.png" />
+    <None Remove="Images\technics.png" />
+    <None Remove="Images\trans.png" />
+    <None Remove="Images\transfer.png" />
     <None Remove="Images\update.png" />
     <None Remove="medicine.png" />
   </ItemGroup>
@@ -30,16 +39,25 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\add.png" />
     <Resource Include="Images\back.png" />
     <Resource Include="Images\bed.png" />
+    <Resource Include="Images\bin.png" />
+    <Resource Include="Images\brush.jpg" />
+    <Resource Include="Images\cart.png" />
     <Resource Include="Images\delete.png" />
     <Resource Include="Images\detail.png" />
     <Resource Include="Images\dynamic.png" />
+    <Resource Include="Images\edit.png" />
     <Resource Include="Images\equipment.png" />
+    <Resource Include="Images\help.png" />
     <Resource Include="Images\medicine.png" />
     <Resource Include="Images\plus.png" />
     <Resource Include="Images\room.png" />
     <Resource Include="Images\search.png" />
+    <Resource Include="Images\technics.png" />
+    <Resource Include="Images\trans.png" />
+    <Resource Include="Images\transfer.png" />
     <Resource Include="Images\update.png" />
     <Resource Include="medicine.png" />
   </ItemGroup>

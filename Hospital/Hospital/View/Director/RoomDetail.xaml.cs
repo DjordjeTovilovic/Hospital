@@ -20,7 +20,7 @@ namespace Hospital.View.Director
     public partial class RoomDetail : Window
     {
         private readonly RoomController roomController = new RoomController();
-        Model.Room room;
+        private Room room;
 
         public RoomDetail(string name, int floor, string description)
         {

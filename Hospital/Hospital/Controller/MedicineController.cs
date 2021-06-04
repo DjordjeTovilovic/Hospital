@@ -48,6 +48,10 @@ namespace Controller
         {
             return _medicineService.GetByName(name);
         }
+        public List<Medicine> GetName(string name)
+        {
+            return _medicineService.GetName(name);
+        }
 
         public void Save(string name, string description)
         {

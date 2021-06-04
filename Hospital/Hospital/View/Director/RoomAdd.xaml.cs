@@ -28,12 +28,36 @@ namespace Hospital.View.Director
 
         private void Prihvati_Click(object sender, RoutedEventArgs e)
         {
-            roomController.Save(name.Text, 0, Int32.Parse(floor.Text), description.Text);
-            MessageBox.Show("Uspesno ste dodali " + name.Text);
-            name.Text = "";
-            floor.Text = "";
-            description.Text = "";
-
+            int err = 0;
+            nameError.Content = "";
+            quaError.Content = "";
+            desError.Content = "";
+            if (name.Text == "")
+            {
+                nameError.Content = "Popunite polje!";
+                err++;
+            }
+            if (floor.Text == "")
+            {
+                quaError.Content = "Popunite polje!";
+                err++;
+            }
+            if (description.Text == "")
+            {
+                desError.Content = "Popunite polje!";
+                err++;
+            }
+            if (err == 0)
+            {
+                roomController.Save(name.Text, 0, Int32.Parse(floor.Text), description.Text);
+                MessageBox.Show("Uspesno ste dodali " + name.Text);
+                nameError.Content = "";
+                quaError.Content = "";
+                desError.Content = "";
+                name.Text = "";
+                floor.Text = "";
+                description.Text = "";
+            }
         }
         private void Ponisti_Click(object sender, RoutedEventArgs e)
         {

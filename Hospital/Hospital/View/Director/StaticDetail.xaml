@@ -14,19 +14,35 @@
         <Label x:Name="ime" Content="" HorizontalAlignment="Center" Margin="0,221,0,0" FontSize="14" VerticalAlignment="Top"/>
         <Label x:Name="kolicina" Content="" HorizontalAlignment="Center" Margin="0,277,0,0" FontSize="14" VerticalAlignment="Top"/>
         <Label x:Name="opis" Content="" HorizontalAlignment="Center" Margin="0,336,0,0" FontSize="14" VerticalAlignment="Top"/>
-        <Button x:Name="deleteButton" HorizontalAlignment="Left" Margin="358,66,0,0" VerticalAlignment="Top" Click="Delete_Click"  Width="40">
-            <Image Stretch="Fill" Source="/Images/delete.png" Height="35" Width="35"/>
+        <Button x:Name="deleteButton" HorizontalAlignment="Left" Margin="358,66,0,0" Height="40" VerticalAlignment="Top" Click="Delete_Click"  Width="40">
+            <Image Stretch="Fill" Source="/Images/bin.png" Height="35" Width="35"/>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="25"/>
+                </Style>
+            </Button.Resources>
         </Button>
         <Button HorizontalAlignment="Left" Margin="356,10,0,0" Click="Back_Click" VerticalAlignment="Top">
             <Image Stretch="Fill" Source="/Images/back.png" Height="26" Width="25"/>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="25"/>
+                </Style>
+            </Button.Resources>
         </Button>
         <Button x:Name="updateButton" HorizontalAlignment="Left" Height="39" Margin="38,66,0,0" VerticalAlignment="Top" Width="40" Click="ShowUpdate_Click">
-            <Image Stretch="Fill" Source="/Images/update.png" Height="35" Width="35" />
+            <Image Stretch="Fill" Source="/Images/edit.png" Height="35" Width="35" />
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="25"/>
+                </Style>
+            </Button.Resources>
         </Button>
         <TextBox x:Name="updateName" HorizontalAlignment="Left" Margin="179,223,0,0" Text="" Visibility="Collapsed" TextWrapping="Wrap" VerticalAlignment="Top"  Width="107" Height="23"/>
         <TextBox x:Name="updateQuantity" HorizontalAlignment="Left" Margin="179,277,0,0" Text="" Visibility="Collapsed" TextWrapping="Wrap" VerticalAlignment="Top"  Width="107" Height="23"/>
         <TextBox x:Name="updateDescription" HorizontalAlignment="Left" Margin="179,336,0,0" Text="" Visibility="Collapsed" TextWrapping="Wrap" VerticalAlignment="Top"  Width="107" Height="23"/>
         <Button x:Name="prihvatiButton" Content="Prihvati" HorizontalAlignment="Left" Margin="328,676,0,0" VerticalAlignment="Top" Height="34" Visibility="Collapsed" Width="61" Click="Prihvati_Click"/>
         <Button x:Name="odustaniButton" Content="Odustani" HorizontalAlignment="Left" Margin="47,676,0,0" VerticalAlignment="Top" Height="34" Visibility="Collapsed" Width="61" Click="Ponisti_Click" />
+        <Button Content="Premesti" HorizontalAlignment="Left" Margin="38,127,0,0" VerticalAlignment="Top" Height="35" Click="Premesti_Click" Width="40"/>
     </Grid>
 </Window>

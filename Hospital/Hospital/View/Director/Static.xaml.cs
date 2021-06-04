@@ -37,21 +37,30 @@ namespace Hospital.View.Director
             this.Close();
         }
         private void Sreach_Click(object sender, RoutedEventArgs e)
-        { // ukoliko nema nista u searchu izbaci poruku ispod bara 
-            //roomsDataGrid.ItemsSource = roomController.GetByName(searchData.Text);   
+        { 
+            if (searchData.Text == "" || searchData.Text == " ")
+            {
+                searcError.Content = "Molim Vas ukucajte tekst pre pretrage";
+            }
+            else
+            {
+                staticDataGrid.ItemsSource = equipmentController.GetByName(searchData.Text);
+            }
         }
         private void Detail_Click(object sender, RoutedEventArgs e)
         {
-            try
+
+            if ((Model.StaticEquipment)staticDataGrid.SelectedItem == null)
             {
+                detailError.Content = "Morate odabrati opremu da bi ste prikazali detalje";
+            }
+            else
+            {
+
                 Model.StaticEquipment equipment = (Model.StaticEquipment)staticDataGrid.SelectedItem;
                 StaticDetail staticDetail = new StaticDetail(equipment.Name, equipment.Quantity, equipment.Description);
                 staticDetail.Show();
-                Close();
-            }
-            catch(NullReferenceException)
-            {
-                MessageBox.Show("Morate odabrati sobu da bi ste prikazali detalje");
+                Close(); ;
             }
         }
     }

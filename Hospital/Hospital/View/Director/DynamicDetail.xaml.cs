@@ -63,19 +63,44 @@ namespace Hospital.View.Director
 
         private void Prihvati_Click(object sender, RoutedEventArgs e)
         {
-            dynamicEquipment.Name = updateName.Text;
-            dynamicEquipment.Description = updateDescription.Text;
-            dynamicEquipment.Quantity = Int32.Parse(updateQuantity.Text);
+            int err = 0;
+            nameError.Content = "";
+            quaError.Content = "";
+            descError.Content = "";
+            if (updateName.Text == "")
+            {
+                nameError.Content = "Popunite polje!";
+                err++;
+            }
+            if (updateQuantity.Text == "")
+            {
+                quaError.Content = "Popunite polje!";
+                err++;
+            }
+            if (updateDescription.Text == "")
+            {
+                descError.Content = "Popunite polje!";
+                err++;
+            }
+            if (err == 0)
+            {
 
-            dynamicEquipmentController.Update(dynamicEquipment);
-            MessageBox.Show("Uspesno ste azurirali " + updateName.Text);
+                dynamicEquipment.Name = updateName.Text;
+                dynamicEquipment.Description = updateDescription.Text;
+                dynamicEquipment.Quantity = Int32.Parse(updateQuantity.Text);
 
-            ime.Content = dynamicEquipment.Name;
-            kolicina.Content = dynamicEquipment.Quantity;
-            opis.Content = dynamicEquipment.Description;
+                dynamicEquipmentController.Update(dynamicEquipment);
+                MessageBox.Show("Uspesno ste azurirali " + updateName.Text);
 
-            Ponisti_Click(sender, e);
+                nameError.Content = "";
+                quaError.Content = "";
+                descError.Content = "";
+                ime.Content = dynamicEquipment.Name;
+                kolicina.Content = dynamicEquipment.Quantity;
+                opis.Content = dynamicEquipment.Description;
 
+                Ponisti_Click(sender, e);
+            }
 
         }
         private void Ponisti_Click(object sender, RoutedEventArgs e)

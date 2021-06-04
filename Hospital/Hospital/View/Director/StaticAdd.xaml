@@ -8,13 +8,16 @@
         Title="StaticAdd" Height="750" Width="430">
     <Grid Background="#81c1b0">
         <Label Content="Dodavanje statičke opreme" HorizontalAlignment="Center" Margin="0,63,0,0" FontSize="20" VerticalAlignment="Top"/>
-        <Label Content="Ime: " HorizontalAlignment="Left" Margin="155,190,0,0" FontSize="16" VerticalAlignment="Top"/>
-        <TextBox x:Name="quantity" HorizontalAlignment="Center" Margin="0,282,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Količina:" HorizontalAlignment="Left" Margin="155,246,0,0" FontSize="16" VerticalAlignment="Top"/>
-        <TextBox x:Name="name" HorizontalAlignment="Center" Margin="0,226,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Opis:" HorizontalAlignment="Left" Margin="155,305,0,0" FontSize="16" VerticalAlignment="Top"/>
-        <TextBox x:Name="description" HorizontalAlignment="Center" Margin="0,341,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Button Content="Prihvati" HorizontalAlignment="Left" Margin="328,676,0,0" VerticalAlignment="Top" Height="34" Width="61" Click="Prihvati_Click"/>
         <Button Content="Poništi" HorizontalAlignment="Left" Margin="47,676,0,0" VerticalAlignment="Top" Height="34" Width="61" Click="Ponisti_Click" />
+        <Label Content="Ime: " HorizontalAlignment="Left" Margin="155,190,0,0" FontSize="16" VerticalAlignment="Top"/>
+        <TextBox x:Name="quantity" HorizontalAlignment="Center" Margin="0,299,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Količina:" HorizontalAlignment="Left" Margin="155,263,0,0" FontSize="16" VerticalAlignment="Top"/>
+        <TextBox x:Name="name" HorizontalAlignment="Center" Margin="0,226,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Opis:" HorizontalAlignment="Left" Margin="155,331,0,0" FontSize="16" VerticalAlignment="Top"/>
+        <TextBox x:Name="description" HorizontalAlignment="Center" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="0,367,0,0"/>
+        <Label x:Name="nameError" Content="" HorizontalAlignment="Left" Foreground="Red" Margin="189,237,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="quaError" Content="" HorizontalAlignment="Left" Foreground="Red" Margin="189,308,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="desError" Content="" HorizontalAlignment="Left" Foreground="Red" Margin="189,376,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

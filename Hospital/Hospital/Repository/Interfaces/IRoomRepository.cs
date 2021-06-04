@@ -13,5 +13,7 @@ namespace Repository.Interfaces
 
         List<Room> GetRoomsWithEquipmentName(string name);
 
+        List<Room> SearchByName(String name);
+
     }
 }

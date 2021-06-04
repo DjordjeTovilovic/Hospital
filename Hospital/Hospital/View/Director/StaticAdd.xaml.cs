@@ -13,9 +13,7 @@ using Controller;
 
 namespace Hospital.View.Director
 {
-    /// <summary>
-    /// Interaction logic for StaticAdd.xaml
-    /// </summary>
+
     public partial class StaticAdd : Window
     {
         private readonly StaticEquipmentController staticEquipmentController = new StaticEquipmentController();
@@ -25,11 +23,36 @@ namespace Hospital.View.Director
         }
         private void Prihvati_Click(object sender, RoutedEventArgs e)
         {
-            staticEquipmentController.Save(name.Text, 0, Int32.Parse(quantity.Text), description.Text);
-            MessageBox.Show("Uspesno ste dodali " + name.Text);
-            name.Text = "";
-            quantity.Text = "";
-            description.Text = "";
+            int err = 0;
+            nameError.Content = "";
+            quaError.Content = "";
+            desError.Content = "";
+            if (name.Text == "")
+            {
+                nameError.Content = "Popunite polje!";
+                err++;
+            }
+            if (quantity.Text == "")
+            {
+                quaError.Content = "Popunite polje!";
+                err++;
+            }
+            if (description.Text == "")
+            {
+                desError.Content = "Popunite polje!";
+                err++;
+            }
+            if (err == 0)
+            {
+                staticEquipmentController.Save(name.Text, 0, Int32.Parse(quantity.Text), description.Text);
+                MessageBox.Show("Uspesno ste dodali " + name.Text);
+                nameError.Content = "";
+                quaError.Content = "";
+                desError.Content = "";
+                name.Text = "";
+                quantity.Text = "";
+                description.Text = "";
+            }
 
         }
         private void Ponisti_Click(object sender, RoutedEventArgs e)

@@ -12,29 +12,53 @@
               IsReadOnly="True" Margin="0,231,0,41">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name"
-                            Binding="{Binding Name}" />
+                            Binding="{Binding Name}" Width="105" />
                 <DataGridTextColumn Header="Type"
-                            Binding="{Binding RoomType}" />
+                            Binding="{Binding RoomType}" Width="105" />
                 <DataGridTextColumn Header="Floor"
-                            Binding="{Binding Floor}" />
+                            Binding="{Binding Floor}" Width="85" />
                 <DataGridTextColumn Header="Detail"
-                            Binding="{Binding Detail}" />
+                            Binding="{Binding Detail}" Width="110" />
             </DataGrid.Columns>
         </DataGrid>
         <TextBox x:Name="searchData" HorizontalAlignment="Left" Margin="144,130,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="30"/>
         <Label  Content="Sobe" HorizontalAlignment="Center" FontSize="20" Height="33" Margin="0,31,0,0" VerticalAlignment="Top" Width="55"/>
-        <Button HorizontalAlignment="Left" Margin="264,130,0,0" VerticalAlignment="Top">
+        <Button HorizontalAlignment="Left" Click="Sreach_Click" Margin="264,130,0,0" VerticalAlignment="Top">
             <Image Stretch="Fill" Source="/Images/search.png" Height="26" Width="25"/>
         </Button>
         <Button HorizontalAlignment="Left" Margin="356,130,0,0" Click="AddRoom_Click" VerticalAlignment="Top">
-            <Image Stretch="Fill" Source="/Images/plus.png" Height="26" Width="25"/>
+            <Image Stretch="Fill" Source="/Images/add.png" Height="26" Width="25"/>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="25"/>
+                </Style>
+            </Button.Resources>
         </Button>
         <Button HorizontalAlignment="Left" Margin="356,180,0,0" Click="Detail_Click" VerticalAlignment="Top">
             <Image Stretch="Fill" Source="/Images/detail.png" Height="26" Width="25"/>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="25"/>
+                </Style>
+            </Button.Resources>
         </Button>
         <Button HorizontalAlignment="Left" Margin="356,10,0,0" Click="Back_Click" VerticalAlignment="Top">
             <Image Stretch="Fill" Source="/Images/back.png" Height="26" Width="25"/>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="25"/>
+                </Style>
+            </Button.Resources>
         </Button>
-        <Button Content="Napredno" HorizontalAlignment="Left" Margin="53,145,0,0" Click="Renoviranje_Click" VerticalAlignment="Top"/>
+        <Button HorizontalAlignment="Left" Margin="53,130,0,0" Click="Renoviranje_Click" VerticalAlignment="Top">
+            <Image Height="25" Stretch="Fill" Source="/Images/technics.png" Width="25"/>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="20"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Label x:Name="searcError" Content="" HorizontalAlignment="Center" Foreground="Red" Height="30" Margin="0,165,0,0" VerticalAlignment="Top" Width="218"/>
+        <Label x:Name="detailError" Content="" HorizontalAlignment="Center" Foreground="Red" Height="30" Margin="0,192,0,0" VerticalAlignment="Top" Width="208"/>
     </Grid>
 </Window>

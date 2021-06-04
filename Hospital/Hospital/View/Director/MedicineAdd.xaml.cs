@@ -25,13 +25,44 @@ namespace Hospital.View.Director
 
         private void Prihvati_Click(object sender, RoutedEventArgs e)
         {
-            medicineController.Save(name.Text, description.Text);
-            MessageBox.Show("Uspesno ste dodali " + name.Text);
-            name.Text = "";
-            description.Text = "";
-            floor.Text = "";
-            type.Text = "";
-
+            int err = 0;
+            nameError.Content = "";
+            quaError.Content = "";
+            desError.Content = "";
+            typeError.Content = "";
+            if (name.Text == "")
+            {
+                nameError.Content = "Popunite polje!";
+                err++;
+            }
+            if (floor.Text == "")
+            {
+                quaError.Content = "Popunite polje!";
+                err++;
+            }
+            if (description.Text == "")
+            {
+                desError.Content = "Popunite polje!";
+                err++;
+            }
+            if (type.Text == "")
+            {
+                typeError.Content = "Popunite polje!";
+                err++;
+            }
+            if (err == 0)
+            {
+                medicineController.Save(name.Text, description.Text);
+                MessageBox.Show("Uspesno ste dodali " + name.Text);
+                nameError.Content = "";
+                quaError.Content = "";
+                desError.Content = "";
+                typeError.Content = "";
+                name.Text = "";
+                description.Text = "";
+                floor.Text = "";
+                type.Text = "";
+            }
         }
         private void Ponisti_Click(object sender, RoutedEventArgs e)
         {

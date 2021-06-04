@@ -31,9 +31,35 @@ namespace Hospital.View.Director
             this.Close();
 
         }
+
+
         private void Sreach_Click(object sender, RoutedEventArgs e)
-        { // ukoliko nema nista u searchu izbaci poruku ispod bara 
-           // medicineDataGrid.ItemsSource = medicineController.GetByName(searchData.Text);
+        {
+            if (searchData.Text == "" || searchData.Text == " ")
+            {
+                searcError.Content = "Molim Vas ukucajte tekst pre pretrage";
+            }
+            else
+            {
+                medicineDataGrid.ItemsSource = medicineController.GetName(searchData.Text);
+            }
+        }
+
+        private void Detail_Click(object sender, RoutedEventArgs e)
+        {
+
+            if ((Medicine)medicineDataGrid.SelectedItem == null)
+            {
+                detailError.Content = "Morate odabrati lek da bi ste prikazali detalje";
+            }
+            else
+            {
+
+                Medicine equipment = (Medicine)medicineDataGrid.SelectedItem;
+                MedicineDetail staticDetail = new MedicineDetail(equipment.Name, equipment.Description);
+                staticDetail.Show();
+                Close();
+            }
         }
     }
 }

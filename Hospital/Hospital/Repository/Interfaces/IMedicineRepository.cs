@@ -13,5 +13,6 @@ namespace Repository.Interfaces
 
         Medicine GetByName(string name);
 
+        public List<Medicine> GetName(string name);
     }
 }

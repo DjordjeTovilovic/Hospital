@@ -12,11 +12,11 @@
                         IsReadOnly="True" Margin="0,231,0,41">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name"
-                            Binding="{Binding Name}" />
+                            Binding="{Binding Name}" Width="135" />
                 <DataGridTextColumn Header="Quantity"
-                            Binding="{Binding Quantity}" />
+                            Binding="{Binding Quantity}" Width="135" />
                 <DataGridTextColumn Header="Description"
-                            Binding="{Binding Description}" />
+                            Binding="{Binding Description}" Width="135" />
             </DataGrid.Columns>
         </DataGrid>
         <TextBox x:Name="searchData" HorizontalAlignment="Left" Margin="144,130,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="30"/>
@@ -25,14 +25,39 @@
             <Image Stretch="Fill" Source="/Images/search.png" Height="26" Width="25"/>
         </Button>
         <Button HorizontalAlignment="Left" Margin="356,130,0,0" Click="AddDynamic_Click" VerticalAlignment="Top">
-            <Image Stretch="Fill" Source="/Images/plus.png" Height="26" Width="25"/>
+            <Image Stretch="Fill" Source="/Images/add.png" Height="26" Width="25"/>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="25"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button HorizontalAlignment="Left" Margin="56,130,0,0" Click="Transfer_Click" VerticalAlignment="Top">
+            <Image Stretch="Fill" Source="/Images/trans.png" Height="26" Width="25"/>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="25"/>
+                </Style>
+            </Button.Resources>
         </Button>
         <Button HorizontalAlignment="Left" Margin="356,180,0,0" Click="Detail_Click" VerticalAlignment="Top">
             <Image Stretch="Fill" Source="/Images/detail.png" Height="26" Width="25"/>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="25"/>
+                </Style>
+            </Button.Resources>
         </Button>
         <Button HorizontalAlignment="Left" Margin="356,10,0,0" Click="Back_Click" VerticalAlignment="Top">
             <Image Stretch="Fill" Source="/Images/back.png" Height="26" Width="25"/>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="25"/>
+                </Style>
+            </Button.Resources>
         </Button>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="50,160,0,0" Click="Transfer_Click" VerticalAlignment="Top"/>
+        <Label x:Name="searcError" Content="" HorizontalAlignment="Center" Foreground="Red" Height="30" Margin="0,165,0,0" VerticalAlignment="Top" Width="218"/>
+        <Label x:Name="detailError" Content="" HorizontalAlignment="Center" Foreground="Red" Height="30" Margin="0,192,0,0" VerticalAlignment="Top" Width="208"/>
+
     </Grid>
 </Window>

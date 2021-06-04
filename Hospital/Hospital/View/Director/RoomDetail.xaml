@@ -15,12 +15,37 @@
         <Label x:Name="sprat" Content="" HorizontalAlignment="Left" Margin="166,285,0,0" FontSize="14" VerticalAlignment="Top"/>
         <Label x:Name="opis" Content="" HorizontalAlignment="Left" Margin="153,338,0,0" FontSize="14" VerticalAlignment="Top"/>
         <Button x:Name="deleteButton" HorizontalAlignment="Left" Margin="356,66,0,0" VerticalAlignment="Top" Click="Delete_Click"  Width="40">
-            <Image Stretch="Fill" Source="/Images/delete.png" Height="35" Width="35"/>
+            <Image Stretch="Fill" Source="/Images/bin.png" Height="35" Width="35"/>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="25"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="updateButton" HorizontalAlignment="Left" Height="39" Margin="38,66,0,0" VerticalAlignment="Top" Width="40" Click="ShowUpdate_Click">
+            <Image Stretch="Fill" Source="/Images/edit.png" Height="35" Width="35" />
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="25"/>
+                </Style>
+            </Button.Resources>
         </Button>
         <Button HorizontalAlignment="Left" Margin="356,10,0,0" Click="Back_Click" VerticalAlignment="Top">
             <Image Stretch="Fill" Source="/Images/back.png" Height="26" Width="25"/>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="25"/>
+                </Style>
+            </Button.Resources>
         </Button>
-        <Button Content="Krecenje" HorizontalAlignment="Left" Height="35" Margin="38,66,0,0" VerticalAlignment="Top" Click="ShowKrecenje_Click" Width="40"/>
+        <Button HorizontalAlignment="Left" Height="40" Margin="38,116,0,0" VerticalAlignment="Top" Click="ShowKrecenje_Click" Width="40">
+            <Image Height="35" Stretch="Fill" Source="/Images/brush.png" Width="35"/>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="25"/>
+                </Style>
+            </Button.Resources>
+        </Button>
         <DatePicker x:Name="date" HorizontalAlignment="Center" Height="30" Margin="0,397,0,0" Visibility="Collapsed" VerticalAlignment="Top" Width="124"/>
         <Label x:Name="dateLabel" Content="Odaberite datum: " HorizontalAlignment="Left" Visibility="Collapsed" Margin="153,361,0,0" FontSize="16" VerticalAlignment="Top"/>
         <Label x:Name="startLabel" Content="Početak renoviranja: " HorizontalAlignment="Left" Visibility="Collapsed" Margin="153,432,0,0" FontSize="16" VerticalAlignment="Top"/>
@@ -29,6 +54,6 @@
         <TextBox x:Name="duration" HorizontalAlignment="Left" Height="23" Visibility="Collapsed" Margin="158,527,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="134"/>
         <Button x:Name="prihvatiButton" Content="Prihvati" HorizontalAlignment="Left" Margin="328,676,0,0" VerticalAlignment="Top" Height="34" Visibility="Collapsed" Width="61" Click="AcceptRenovation_Click"/>
         <Button x:Name="odustaniButton" Content="Odustani" HorizontalAlignment="Left" Margin="47,676,0,0" VerticalAlignment="Top" Height="34" Visibility="Collapsed" Width="61" Click="Ponisti_Click" />
-
+        
     </Grid>
 </Window>

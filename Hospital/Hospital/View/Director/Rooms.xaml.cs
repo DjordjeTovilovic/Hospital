@@ -48,21 +48,30 @@ namespace Hospital.View.Director
         }
 
         private void Sreach_Click(object sender, RoutedEventArgs e)
-        { // ukoliko nema nista u searchu izbaci poruku ispod bara 
-            //roomsDataGrid.ItemsSource = roomController.GetByName(searchData.Text);   
+        { 
+            if(searchData.Text == "" || searchData.Text == " ")
+            {
+                searcError.Content = "Molim Vas ukucajte tekst pre pretrage";
+            }
+            else
+            {
+                searcError.Content = "";
+                roomsDataGrid.ItemsSource = roomController.SearchByName(searchData.Text);          
+            }
         }
         private void Detail_Click(object sender, RoutedEventArgs e)
         {
-            try
+            if((Room)roomsDataGrid.SelectedItem == null)
             {
-                Model.Room room = (Room)roomsDataGrid.SelectedItem;
+                detailError.Content = "Morate odabrati sobu da bi ste prikazali detalje";
+            }
+            else
+            {
+
+                Room room = (Room)roomsDataGrid.SelectedItem;
                 RoomDetail roomDetail = new RoomDetail(room.Name, room.Floor, room.Detail);
                 roomDetail.Show();
                 Close();
-            }
-            catch
-            {
-                MessageBox.Show("Morate odabrati sobu da bi ste prikazali detalje");
             }
         }
     }

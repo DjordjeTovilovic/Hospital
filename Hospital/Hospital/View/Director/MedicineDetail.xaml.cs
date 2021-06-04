@@ -9,26 +9,24 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Controller;
 
 namespace Hospital.View.Director
 {
     /// <summary>
-    /// Interaction logic for StaticDetail.xaml
+    /// Interaction logic for MedicineDetail.xaml
     /// </summary>
-    public partial class StaticDetail : Window
+    public partial class MedicineDetail : Window
     {
-        private string pomocnoIme;
-        private readonly StaticEquipmentController staticEquipmentController = new StaticEquipmentController();
-        private Model.StaticEquipment staticEquipment1;
-        public StaticDetail(string name, int quantity, string description)
+        private readonly Controller.MedicineController medicineController = new Controller.MedicineController();
+        private Model.Medicine medicine;
+        public MedicineDetail(string name, string description)
         {
             InitializeComponent();
             ime.Content = name;
-            kolicina.Content = quantity;
+
             opis.Content = description;
-            
-            staticEquipment1 = staticEquipmentController.GetName(name);
+
+            medicine = medicineController.GetByName(name);
 
         }
 
@@ -36,15 +34,15 @@ namespace Hospital.View.Director
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
 
-            
-            staticEquipmentController.Delete(staticEquipment1.Id);
-            MessageBox.Show("Uspesno ste obrisali sobu " + pomocnoIme);
-            pomocnoIme = "";
+
+            medicineController.Delete(medicine.Id);
+            MessageBox.Show("Uspesno ste obrisali sobu " + medicine.Name);
+
             Back_Click(sender, e);
         }
         private void Back_Click(object sender, RoutedEventArgs e)
         {
-            Static stat = new Static();
+            Medicines stat = new Medicines();
             stat.Show();
             this.Close();
         }
@@ -67,24 +65,47 @@ namespace Hospital.View.Director
             updateButton.Visibility = Visibility.Collapsed;
             prihvatiButton.Visibility = Visibility.Visible;
             odustaniButton.Visibility = Visibility.Visible;
+            naruciButton.Visibility = Visibility.Collapsed;
 
         }
 
         private void Prihvati_Click(object sender, RoutedEventArgs e)
         {
-            staticEquipment1.Name = updateName.Text;
-            staticEquipment1.Description = updateDescription.Text;
-            staticEquipment1.Quantity = Int32.Parse(updateQuantity.Text);
+            int err = 0;
+            nameError.Content = "";
+            quaError.Content = "";
+            descError.Content = "";
+            if (updateName.Text == "")
+            {
+                nameError.Content = "Popunite polje!";
+                err++;
+            }
+            if (updateQuantity.Text == "")
+            {
+                quaError.Content = "Popunite polje!";
+                err++;
+            }
+            if (updateDescription.Text == "")
+            {
+                descError.Content = "Popunite polje!";
+                err++;
+            }
+            if (err == 0)
+            {
+                nameError.Content = "";
+                quaError.Content = "";
+                descError.Content = "";
+                medicine.Name = updateName.Text;
+                medicine.Description = updateDescription.Text;
 
-            staticEquipmentController.Update(staticEquipment1);
-            MessageBox.Show("Uspesno ste azurirali " + updateName.Text);
+                medicineController.Update(medicine);
+                MessageBox.Show("Uspesno ste azurirali " + updateName.Text);
 
-            ime.Content = staticEquipment1.Name;
-            kolicina.Content = staticEquipment1.Quantity;
-            opis.Content = staticEquipment1.Description;
+                ime.Content = medicine.Name;
+                opis.Content = medicine.Description;
 
-            Ponisti_Click(sender, e);
-
+                Ponisti_Click(sender, e);
+            }
 
         }
         private void Ponisti_Click(object sender, RoutedEventArgs e)
@@ -93,7 +114,7 @@ namespace Hospital.View.Director
             kolicina.Visibility = Visibility.Visible;
             opis.Visibility = Visibility.Visible;
 
-            updateName.Visibility = Visibility.Collapsed; 
+            updateName.Visibility = Visibility.Collapsed;
             updateQuantity.Visibility = Visibility.Collapsed;
             updateDescription.Visibility = Visibility.Collapsed;
 
@@ -101,11 +122,12 @@ namespace Hospital.View.Director
             updateButton.Visibility = Visibility.Visible;
             prihvatiButton.Visibility = Visibility.Collapsed;
             odustaniButton.Visibility = Visibility.Collapsed;
+            naruciButton.Visibility = Visibility.Visible;
         }
 
-        private void Premesti_Click(object sender, RoutedEventArgs e)
+        private void Naruci_Click(object sender, RoutedEventArgs e)
         {
-            StaticRoomTransfer staticRoomTransfer = new StaticRoomTransfer(staticEquipment1);
+            MedicineNaruci staticRoomTransfer = new MedicineNaruci(medicine.Name, medicine.Description);
             staticRoomTransfer.Show();
             Close();
         }

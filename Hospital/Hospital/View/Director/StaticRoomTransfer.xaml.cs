@@ -1,14 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+
 
 namespace Hospital.View.Director
 {
@@ -17,9 +10,32 @@ namespace Hospital.View.Director
     /// </summary>
     public partial class StaticRoomTransfer : Window
     {
-        public StaticRoomTransfer()
+        Controller.RoomController roomController = new Controller.RoomController();
+        Model.StaticEquipment staticEquipmentP;
+        public StaticRoomTransfer(Model.StaticEquipment staticEquipment)
         {
             InitializeComponent();
+            this.kolicina.Content = staticEquipment.Quantity;
+            this.ime.Content = staticEquipment.Name;
+            Model.Room room = roomController.GetById(staticEquipment.RoomId);
+            this.opis.Content = staticEquipment.Description;
+            soba.Content += room.Name;
+            staticEquipmentP = staticEquipment;
+
         }
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            StaticDetail stat = new StaticDetail(staticEquipmentP.Name, staticEquipmentP.Quantity, staticEquipmentP.Description);
+            stat.Show();
+            Close();
+        }
+
+        private void Prihvati_Click(object sender, RoutedEventArgs e)
+        {
+            StaticDetail stat = new StaticDetail(staticEquipmentP.Name, staticEquipmentP.Quantity, staticEquipmentP.Description);
+            stat.Show();
+            Close();
+        }
+
     }
 }

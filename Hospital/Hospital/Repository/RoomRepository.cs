@@ -31,7 +31,10 @@ namespace Repository
             }
             return roomsToReturn;
         }
-
+        public List<Room> SearchByName(String name)
+        {
+            return _objects.FindAll(obj => obj.Name == name);
+        }
         public List<Room> GetRoomsByRoomType(RoomType roomType)
         {
             return _objects.FindAll(obj => obj.RoomType == roomType);

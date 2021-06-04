@@ -23,6 +23,10 @@ namespace Controller
         {
             return roomService.GetByName(name);
         }
+        public List<Room> SearchByName(String name)
+        {
+            return roomService.SearchByName(name);
+        }
 
         public void Save(String name, RoomType roomType, int floor, String detail)
         {
