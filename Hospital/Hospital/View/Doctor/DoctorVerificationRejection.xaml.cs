@@ -29,7 +29,7 @@ namespace Hospital.View.Doctor
         {
             if (MedicineRejectionText.Text != "")
             {
-                app.medicineController.RejectMedicine(ParentWindow.Medicine.Id, MedicineRejectionText.Text);
+                app.medicineController.Reject(ParentWindow.Medicine.Id, MedicineRejectionText.Text);
 
                 ParentWindow.UpdateWindow();
                 this.Close();
