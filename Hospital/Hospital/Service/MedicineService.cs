@@ -1,4 +1,6 @@
+using Hospital.Model;
 using Model;
+using Repository;
 using Repository.Interfaces;
 using System.Collections.Generic;
 
@@ -11,6 +13,11 @@ namespace Service
         public MedicineService(IMedicineRepository medicineRepository)
         {
             _medicineRepository = medicineRepository;
+        }
+
+        public MedicineService()
+        {
+            _medicineRepository = new MedicineRepository();
         }
 
         public List<Medicine> GetAll()
@@ -66,13 +73,48 @@ namespace Service
             _medicineRepository.Update(medicine);
         }
 
-        public void RejectMedicine(int id, string doctorComment)
+        public void Verify(int id)
         {
             Medicine medicine = GetById(id);
-            medicine.Verification = VerificationType.rejected;
-            medicine.DoctorComment = doctorComment;
-            _medicineRepository.Update(medicine);
+
+            switch (medicine.Verification)
+            {
+                case VerificationType.needsVerification:
+                    medicine.VerificationState = new NeedsVerificationState();
+                    break;
+                case VerificationType.verified:
+                    medicine.VerificationState = new VerifiedState();
+                    break;
+                case VerificationType.rejected:
+                    medicine.VerificationState = new RejectedState();
+                    break;
+            }
+
+            medicine.VerificationState.Verify(medicine);
         }
+
+        public void Reject(int id, string doctorComment)
+        {
+            Medicine medicine = GetById(id);
+            medicine.DoctorComment = doctorComment;
+
+            switch (medicine.Verification)
+            {
+                case VerificationType.needsVerification:
+                    medicine.VerificationState = new NeedsVerificationState();
+                    break;
+                case VerificationType.verified:
+                    medicine.VerificationState = new VerifiedState();
+                    break;
+                case VerificationType.rejected:
+                    medicine.VerificationState = new RejectedState();
+                    break;
+            }
+
+            medicine.VerificationState.Reject(medicine);
+        }
+
+
         public int GenerateNewId()
         {
             return _medicineRepository.GenerateNewId();
