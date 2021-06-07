@@ -8,8 +8,7 @@ namespace Hospital
 {
     public partial class MainWindow : Window
     {
-        private readonly RenovationService _renovationService = new RenovationService();
-        private readonly RoomService _roomService = new RoomService();
+
         public MainWindow()
         {
             InitializeComponent();               
