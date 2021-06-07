@@ -98,7 +98,7 @@ namespace Hospital.View.Doctor
         private void VerifyButton_Click(object sender, RoutedEventArgs e)
         {
             Medicine medicine = Medicines[lvMedicineDataBinding.SelectedIndex];
-            app.medicineController.Update(medicine.Id, medicine.Name, VerificationType.verified, medicine.Description);
+            app.medicineController.Verify(medicine.Id);
 
             VerifyButton.Visibility = Visibility.Collapsed;
             RejectButton.Visibility = Visibility.Collapsed;

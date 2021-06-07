@@ -1,3 +1,5 @@
+using Hospital.Model;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 
 namespace Model
@@ -16,8 +18,11 @@ namespace Model
         }
 
         public string Name { get; set; }
-        
+
         public VerificationType Verification { get; set; }
+
+        [JsonIgnore]
+        public IVerificationState VerificationState { get; set; }
 
         public string Description { get; set; }
 
