@@ -7,17 +7,15 @@ using Model;
 
 namespace Hospital.View.Director
 {
-    /// <summary>
-    /// Interaction logic for Renovation.xaml
-    /// </summary>
+
     public partial class Renovation : Window
     {
-        private readonly RoomController roomController = new RoomController();
+        App app = (App)Application.Current;
 
         public Renovation()
         {
             InitializeComponent();
-            roomsDataGrid.ItemsSource = roomController.GetAll();
+            roomsDataGrid.ItemsSource = app.roomController.GetAll();
             
         }
 
@@ -27,7 +25,7 @@ namespace Hospital.View.Director
             {
                 Room room = (Room)roomsDataGrid.SelectedItems[0];
                 DateTime renovationDate = SelectedDate();
-                bool goodDate = roomController.Renovation(room.Id ,renovationDate, Double.Parse(duration.Text));
+                bool goodDate = app.roomController.Renovation(room.Id ,renovationDate, Double.Parse(duration.Text));
 
                 if (!goodDate)
                 {

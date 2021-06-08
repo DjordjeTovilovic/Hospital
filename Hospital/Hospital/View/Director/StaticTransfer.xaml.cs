@@ -10,7 +10,7 @@ namespace Hospital.View.Director
     public partial class StaticTransfer : Window
     {
         private readonly StaticEquipmentController staticEquipmentController = new StaticEquipmentController();
-        private readonly RoomController roomController = new RoomController();
+        App app = (App)Application.Current;
         private readonly MovingStaticController movingStaticController = new MovingStaticController();
         int staticId;
         
@@ -28,7 +28,7 @@ namespace Hospital.View.Director
             {
                 if (staticToMove.DateTime.Ticks <= DateTime.Now.Ticks)
                 {
-                    roomController.MoveStaticEquipment(staticToMove.StaticId, staticToMove.RoomId);
+                    app.roomController.MoveStaticEquipment(staticToMove.StaticId, staticToMove.RoomId);
                     movingStaticController.Delete(staticToMove.Id);
                 }
 

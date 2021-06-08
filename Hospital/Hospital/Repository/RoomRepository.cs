@@ -15,6 +15,11 @@ namespace Repository
             _fileLocation = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + "\\Data\\rooms.json";
             ReadJson();
         }
+        public RoomRepository(string fileLocation)
+        {
+            _fileLocation = fileLocation;
+            ReadJson();
+        }
 
         public Room GetByName(String name)
         {

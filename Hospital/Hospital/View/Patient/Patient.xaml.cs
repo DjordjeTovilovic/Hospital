@@ -15,7 +15,7 @@ namespace Hospital
         EmployeeController doctorController = new EmployeeController();
 
         AppointmentController appointmentController = new AppointmentController();
-        RoomController roomController = new RoomController();
+        App app;
         List<Employee> doctors = new List<Employee>();
         Patient patient;
         PatientController patientController = new PatientController();

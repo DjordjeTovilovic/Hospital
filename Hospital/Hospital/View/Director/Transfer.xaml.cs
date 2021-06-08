@@ -9,9 +9,7 @@ using System;
 
 namespace Hospital.View.Director
 {
-    /// <summary>
-    /// Interaction logic for Transfer.xaml
-    /// </summary>
+
     public partial class Transfer : Window
     {
         DynamicEquipmentController dynamicController = new DynamicEquipmentController();

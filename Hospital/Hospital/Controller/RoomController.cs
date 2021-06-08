@@ -1,17 +1,22 @@
 using Model;
 using System;
+using Service;
 using System.Collections.Generic;
 
 namespace Controller
 {
     public class RoomController
     {
-        public Service.RoomService roomService = new Service.RoomService();
-
+        private readonly IService<Room> roomService;
+        
+        public RoomController(IService<Room> service)
+        {
+            roomService = service;
+        }
 
         public List<Room> GetAll()
         {
-            return roomService.GetAll();
+            return (List<Room>)roomService.GetAll();
         }
 
         public Room GetById(int id)
@@ -26,7 +31,8 @@ namespace Controller
 
         public void Save(String name, RoomType roomType, int floor, String detail)
         {
-            roomService.Save(name, roomType, floor, detail);
+            Room room = new Room(GenerateNewId(), name, roomType, floor, detail, true);
+            roomService.Save(room);
         }
 
         public void Delete(int id)
@@ -45,29 +51,29 @@ namespace Controller
 
         public bool Renovation(int roomId, DateTime renovationDate, double duration)
         {
-            return roomService.Renovation(roomId, renovationDate, duration);
+            return true;
         }
 
         public List<Room> GetRoomsByRoomType(RoomType roomType)
         {
-            return roomService.GetRoomsByRoomType(roomType);
+            return (List<Room>)roomService.GetAll();
         }
 
         public List<Room> GetRoomsWithEquipmentName(string name)
         {
-            return roomService.GetRoomsWithEquipmentName(name);
+            return (List<Room>)roomService.GetAll();
         }
         public void MoveStaticEquipment(int staticId, int toRoom)
         {
-            roomService.MoveStaticEquipment(staticId, toRoom);
+            
         }
         public void DettachRooms(int roomId)
         {
-            roomService.DettachRooms(roomId);
+            
         }
         public void AttachRooms(int roomAId, int roomBId)
         {
-            roomService.AttachRooms(roomAId, roomBId);
+            
         }
 
     }

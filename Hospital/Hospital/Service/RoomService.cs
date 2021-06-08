@@ -1,57 +1,50 @@
 using Model;
 using DTO;
 using System;
+using Repository.Interfaces;
 using Repository;
 using System.Collections.Generic;
 
+
 namespace Service
 {
-    public class RoomService
+    public class RoomService : IService<Room>
     {
-        public readonly RoomRepository roomRepository = new RoomRepository();
+        
         public readonly AppointmentService appointmentService = new AppointmentService();
-        public readonly StaticEquipmentRepository staticRepository = new StaticEquipmentRepository();
-        public List<Room> GetAll()
+        public readonly StaticEquipmentService staticService = new StaticEquipmentService();
+        private readonly IRoomRepository _roomRepository;
+        public RoomService(IRoomRepository roomRepository)
         {
-            return roomRepository.GetAll();
+            _roomRepository = roomRepository;
         }
+
+        public IEnumerable<Room> GetAll()
+            => _roomRepository.GetAll();
 
         public Room GetById(int id)
-        {
-            return roomRepository.GetById(id);
-        }
+            => _roomRepository.GetById(id);
 
-        public Room GetByName(String name)
-        {
-            return roomRepository.GetByName(name);
-        }
-
-        public void Save(String name, RoomType roomType, int floor, String detail)
-        {
-            int id = GenerateNewId();
-            Room room = new Room(id, name, roomType, floor, detail, true);
-            roomRepository.Save(room);
-        }
-
-        public void Delete(int id)
-        {
-            roomRepository.Delete(id);
-        }
+        public void Save(Room room)
+            => _roomRepository.Save(room);
 
         public void Update(Room room)
-        {
-            roomRepository.Update(room);
-        }
+            => _roomRepository.Update(room);
 
+        public void Delete(int id)
+            => _roomRepository.Delete(id);
+
+        public Room GetByName(string name)
+            => _roomRepository.GetByName(name);
+        
+        
         public List<Room> GetRoomsByRoomType(RoomType roomType)
         {
-            return roomRepository.GetRoomsByRoomType(roomType);
+            return _roomRepository.GetRoomsByRoomType(roomType);
         }
 
         public int GenerateNewId()
-        {
-            return roomRepository.GenerateNewId();
-        }
+            => _roomRepository.GenerateNewId();
 
         public bool Renovation(int roomId, DateTime renovationDate, double duration)
         {
@@ -66,14 +59,16 @@ namespace Service
             }
         }
 
+
+
         public List<Room> GetRoomsWithEquipmentName(string name)
         {
-            return roomRepository.GetRoomsWithEquipmentName(name);
+            return _roomRepository.GetRoomsWithEquipmentName(name);
         }
-
+        /*
         public void MoveStaticEquipment(int staticId, int toRoom)
         {
-            StaticEquipment staticEquipment = staticRepository.GetById(staticId);
+            StaticEquipment staticEquipment = staticService.GetById(staticId);
             Room room = GetById(staticEquipment.RoomId);
 
             room.StaticEquipments.Remove(staticEquipment);
@@ -81,7 +76,7 @@ namespace Service
 
             staticEquipment.RoomId = room2.Id;
             room2.StaticEquipments.Add(staticEquipment);
-            staticRepository.Update(staticEquipment);
+            staticService.Update(staticEquipment);
 
             Update(room);
             Update(room2);
@@ -112,5 +107,6 @@ namespace Service
             Room roomA = GetById(roomId);
             Save(roomA.Name + "-A", roomA.RoomType, roomA.Floor, roomA.Detail); //room b
         }
+        */
     }
 }

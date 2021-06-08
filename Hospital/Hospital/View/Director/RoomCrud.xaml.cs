@@ -10,7 +10,8 @@ namespace Hospital.View.Director
 
     public partial class RoomCrud : Window
     {
-        private readonly RoomController roomController = new RoomController();
+        App app = (App)Application.Current;
+
         private readonly RenovationController renovationController = new RenovationController();
         private int id; 
        
@@ -19,7 +20,7 @@ namespace Hospital.View.Director
         {
             InitializeComponent();
             RenovationTime();
-            List<Room> roomsToShow = roomController.GetAll();
+            List<Room> roomsToShow = app.roomController.GetAll();
             roomsDataGrid.ItemsSource = roomsToShow;
         }
         private void RenovationTime()
@@ -39,22 +40,22 @@ namespace Hospital.View.Director
         {
             if (renovation.Type == 0)
             {
-                roomController.AttachRooms(renovation.RoomId, renovation.RoomBId);
+                app.roomController.AttachRooms(renovation.RoomId, renovation.RoomBId);
             }
             else
             {
-                roomController.DettachRooms(renovation.RoomId);
+                app.roomController.DettachRooms(renovation.RoomId);
             }
             renovationController.Delete(renovation.Id);
         }
         private Room CreateRoom()
         {
-            int id = roomController.GenerateNewId();
+            int id = app.roomController.GenerateNewId();
             string textname = name.Text;
             Enum.TryParse(type.Text, out RoomType myStatus);
             string roomdetail = detail.Text;
             int roomfloor = Int32.Parse(floor.Text);
-            roomController.Save(textname, myStatus, roomfloor, roomdetail);
+            app.roomController.Save(textname, myStatus, roomfloor, roomdetail);
             return new Room(id, textname, myStatus, roomfloor, roomdetail, true);
         }
 
@@ -74,7 +75,7 @@ namespace Hospital.View.Director
             try
             {
                 Room room = (Room)roomsDataGrid.SelectedItems[0];
-                roomController.Delete(room.Id);
+                app.roomController.Delete(room.Id);
             }
             catch
             {
@@ -114,7 +115,7 @@ namespace Hospital.View.Director
             string roomdetail = detail.Text;
             int roomfloor = Int32.Parse(floor.Text);
             Room room = new Room(id, textname, myStatus, roomfloor, roomdetail, true);
-            roomController.Update(room);
+            app.roomController.Update(room);
             id = -1;
         }
 

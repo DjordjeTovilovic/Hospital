@@ -10,14 +10,14 @@ namespace Hospital.View.Director
 {
     public partial class HardRenovation : Window
     {
-        private readonly RoomController roomController = new RoomController();
+        App app = (App)Application.Current;
         private readonly RenovationController renovationController = new RenovationController();
         
         
         public HardRenovation()
         {
             InitializeComponent();
-            List<Room> rooms = roomController.GetAll();
+            List<Room> rooms = app.roomController.GetAll();
             foreach(Room room in rooms)
             {
                 roomA.Items.Add(room.Name);
@@ -49,8 +49,8 @@ namespace Hospital.View.Director
 
         private void Attach(string roomAName, string roomBName)
         {
-            Room roomA = roomController.GetByName(roomAName);
-            Room roomB = roomController.GetByName(roomBName);
+            Room roomA = app.roomController.GetByName(roomAName);
+            Room roomB = app.roomController.GetByName(roomBName);
 
             DateTime renovationDateTime = SelectedDate();
 
@@ -61,7 +61,7 @@ namespace Hospital.View.Director
 
         private void Dettach(string roomName)
         {
-            Room room = roomController.GetByName(roomName);
+            Room room = app.roomController.GetByName(roomName);
             DateTime renovationDateTime = SelectedDate();
 
             bool goodDate = renovationController.DettachRooms(room.Id, renovationDateTime, Double.Parse(duration.Text));
