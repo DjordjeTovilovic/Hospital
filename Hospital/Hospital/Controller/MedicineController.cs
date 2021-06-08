@@ -54,9 +54,14 @@ namespace Controller
             _medicineService.Save(name, description);
         }
 
-        public void RejectMedicine(int id, string doctorComment)
+        public void Verify(int id)
         {
-            _medicineService.RejectMedicine(id, doctorComment);
+            _medicineService.Verify(id);
+        }
+
+        public void Reject(int id, string doctorComment)
+        {
+            _medicineService.Reject(id, doctorComment);
         }
 
         public void Delete(int id)
