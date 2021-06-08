@@ -1,9 +1,7 @@
 ﻿using Controller;
 using Repository;
-using Repository.Interfaces;
 using System;
 using Service;
-using Model;
 using System.IO;
 using System.Windows;
 
